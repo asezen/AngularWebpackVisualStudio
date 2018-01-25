@@ -1,0 +1,212 @@
+.dialog-frame,
+.dialog-frame *,
+.dialog-frame *:before,
+.dialog-framen *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.dialog-frame {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display:block !important;
+  overflow: hidden;  
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.dialog-frame.dialog-fade .dialog-main {
+  -webkit-transition: -webkit-transform .3s ease-out;
+       -o-transition:      -o-transform .3s ease-out;
+          transition:         transform .3s ease-out;
+  -webkit-transform: translate(0, -25%);
+      -ms-transform: translate(0, -25%);
+       -o-transform: translate(0, -25%);
+          transform: translate(0, -25%);
+}
+.dialog-frame.dialog-fade .dialog-no-animation {
+  -webkit-transition: -webkit-transform 0s ease-out;
+       -o-transition:      -o-transform 0s ease-out;
+          transition:         transform 0s ease-out;
+  /*-webkit-transform: translate(0, -25%);
+      -ms-transform: translate(0, -25%);
+       -o-transform: translate(0, -25%);
+          transform: translate(0, -25%);*/
+}  
+
+.dialog-frame.in .dialog-main {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+       -o-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.dialog-frame.dialog-backgray {  
+  background: rgba(0, 0, 0, 0.3);  
+}
+
+.dialog-fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+       -o-transition: opacity .15s linear;
+          transition: opacity .15s linear;
+}
+.dialog-fade.in {
+  opacity: 1;
+}
+
+.dialog-main {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+.border-to-dialog {
+  border: #c5c5c5 1px solid;
+  border-radius: 5px;
+}
+
+.dialog-content {
+  position: relative;
+  background-color: #f0f0f0; /*#fff;*/
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  margin: 0 auto;
+  max-width: 100%;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+.dialog-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.dialog-header .close {
+  margin-top: -2px;
+}
+.dialog-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.dialog-body {
+  position: relative;
+  padding: 15px;
+}
+.dialog-footer {
+  padding-left: 15px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.dialog-footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+.dialog-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+.dialog-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+
+.dialog-main .dialog-message {
+    margin-bottom: 7px;
+}
+
+.dialog-main .dialog-buttons {
+  *zoom: 1;
+}
+.dialog-main .dialog-buttons:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.dialog-main .dialog-button {
+  border: #c5c5c5 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 0 0 0 7px;
+  padding: 7px 14px; 
+}
+.dialog-main .dialog-button:focus {
+  -webkit-animation: dialog-pulse 1.1s infinite;
+  animation: dialog-pulse 1.1s infinite;
+  outline: none;
+}
+.dialog-main .dialog-button.dialog-button-primary {
+  background: #3288e6;
+  color: #fff;
+}
+.dialog-main .dialog-button.dialog-button-primary-disabled {
+  background: #689eda;
+  color: #bbb;
+}
+.dialog-main .dialog-button.dialog-button-secondary {
+  background: #e0e0e0;
+  color: #777;
+}
+
+
+/*NOT Used*/
+.dialog-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+.dialog-open {
+  overflow: hidden;
+}
+.dialog-open .dialog-frame {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.dialog-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+.dialog-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.dialog-backdrop.in {
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+@media (min-width: 768px) {
+  .dialog-main {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .dialog-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  }
+  .dialog-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  .dialog-lg {
+    width: 900px;
+  }
+}

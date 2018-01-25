@@ -1,0 +1,24 @@
+﻿<div class="dialog-content" #dialogElem>
+    <div class="dialog-header" #headerElem>
+        <!--Using focus-blur directive to move focus from caller if it's UI element-->
+        <button type="button" class="close" [focus-blur]="'focus_blur'" (click)="close()">&times;</button>
+        <h4 class="dialog-title" #titleElem>{{title}}</h4>
+    </div>
+    <div class="dialog-body" #bodyElem>
+        <table style="width:100%;">
+            <tr>
+                <td>
+                    <div *ngIf="showIcon" [dialog-icon]="icon"></div>
+                    <!--<div class="dialog-icon-info"></div>-->
+                </td>
+                <td>
+                    <p #messageElem>{{message}}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="dialog-buttons dialog-footer" #footerElem>
+        <button *ngIf="closeButtonLabel != undefined && closeButtonLabel != ''" type="button" class="dialog-button dialog-button-secondary" #closeButtonElem (click)="close()">{{closeButtonLabel}}</button>
+        <button *ngIf="actionButtonLabel != undefined && actionButtonLabel != ''" type="button" class="dialog-button dialog-button-primary" #actionButtonElem (click)="action()">{{actionButtonLabel}}</button>
+    </div>
+</div>

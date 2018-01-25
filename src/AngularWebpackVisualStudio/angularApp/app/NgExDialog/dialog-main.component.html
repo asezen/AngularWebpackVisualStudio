@@ -1,0 +1,7 @@
+﻿<div class="dialog-frame dialog-fade" [ngClass]="{'in': shown, 'dialog-backgray': isGrayBackground}" 
+     role="dialog" (click)="clickOutside($event)" >
+    <div class="dialog-main" [ngClass]="{'dialog-no-animation': !isAnimation}" [style.width]="dialogWidth" [ng2-draggable]="isDraggable" vertical-center>
+        <template #element>
+        </template>
+    </div>
+</div>

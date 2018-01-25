@@ -1,0 +1,19 @@
+ 
+<modal id="LoginModal">
+    <div class="modal">
+        <div class="modal-body">
+            <h1>Login </h1>
+            <form class="form-inline" (ngSubmit)="login()" #credentialForm="ngForm">
+                <div class="form-group">
+                    <label class="sr-only" for="credential">Credentials</label>
+                    <input type="text" class="form-control" id="credentialLoginName" placeholder="Login name" name="credential" [(ngModel)]="credential.name" required>
+                    <input type="text" class="form-control" id="credentialPassword" placeholder="Password" name="credential" [(ngModel)]="credential.Password" required>
+                       
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!credentialForm.valid">Login</button>
+            </form>
+            <button (click)="closeModal('LoginModal');">Close</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>
